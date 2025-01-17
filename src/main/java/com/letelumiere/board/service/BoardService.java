@@ -1,5 +1,6 @@
 package com.letelumiere.board.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,9 +39,18 @@ public class BoardService {
     }
 
     public Board updateContent(Board board){
-        var content = boardRepository.getContent(board.getNo());
-        
-        return boardRepository.save(board);
+        var content = boardRepository.getContent(board.getNo()).orElseThrow(null);
+
+        System.out.println(content.toString());
+        content.setContent(board.getContent());
+        content.setUpdDate(new Date(System.currentTimeMillis()));
+
+        return boardRepository.save(content);
+    }
+
+    public void deleteContent(int no){
+        var content = boardRepository.findById(no).orElseThrow(null);
+        boardRepository.delete(content);
     }
 }
 
