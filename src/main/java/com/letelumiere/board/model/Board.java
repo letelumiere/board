@@ -32,11 +32,11 @@ public class Board {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "reg_date")
+    @Column(name = "regDate")
     @CreationTimestamp
     private Date regDate;
 
-    @Column(name = "upd_date")
+    @Column(name = "updDate")
   	@UpdateTimestamp
     private Date updDate;
 }

@@ -26,13 +26,16 @@ public class BoardService {
     }
 
     public Board insertContent(Board board){
+        Date date = new Date(System.currentTimeMillis());
+        
+
         var content = new Board(
             board.getNo(),
             board.getTitle(),
             board.getWriter(),
             board.getContent(),
-            board.getRegDate(),
-            board.getUpdDate()
+            date,
+            date
         );
 
         return boardRepository.save(content);
@@ -49,7 +52,7 @@ public class BoardService {
     }
 
     public void deleteContent(int no){
-        var content = boardRepository.findById(no).orElseThrow(null);
+        var content = boardRepository.getContent(no).orElseThrow(null);
         boardRepository.delete(content);
     }
 }

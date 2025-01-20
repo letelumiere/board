@@ -8,7 +8,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // 모든 엔드포인트에 대해 CORS 허용
-                .allowedOrigins("http://localhost:3000", "http://10.0.2.2:8080")
+                .allowedOrigins("http://localhost:3000", "http://10.0.2.2:8080", "http://localhost:8080", "http://localhost:3306", "http://10.0.2.2:3306")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
                 .allowCredentials(true);

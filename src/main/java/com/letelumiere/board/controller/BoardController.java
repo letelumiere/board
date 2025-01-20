@@ -19,7 +19,6 @@ import com.letelumiere.board.service.BoardService;
 
 import lombok.RequiredArgsConstructor;
 
-
 @RestController
 @RequestMapping("/board")
 @RequiredArgsConstructor
@@ -50,7 +49,7 @@ public class BoardController {
     }
 
     @DeleteMapping("/{no}")
-    public void delete(@PathVariable(name = "no") int no){
+    public void delete(@PathVariable("no") int no){
         boardService.deleteContent(no);
     }
     
